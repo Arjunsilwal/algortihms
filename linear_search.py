@@ -6,7 +6,7 @@ number by turning over as few cards as possible.
 Write a function to help Bob locate the card."""
 
 import math
-
+import time
 
 #linear Search
 def locate_number(cards, query):
@@ -44,7 +44,14 @@ tests.append({
 print(tests)
 
 for i in range(len(tests)):
+    start_time = time.time()
     if locate_number(**tests[i]["input"]) == tests[i]["output"]:
         print("Passed")
     else:
         print("Failed")
+    end_time = time.time()
+    total_time = start_time - end_time
+    print(format(total_time * 1000, ".4f"), "ms")
+
+
+
